@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Flow</class>
+ <widget class="QWidget" name="Flow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>566</width>
+    <height>365</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Расчет истечения из сопла</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="EnterBox" name="eBox_P_in">
+         <property name="toolTip">
+          <string>Давление на входе</string>
+         </property>
+         <property name="whatsThis">
+          <string>Виджет EnterBox отображает давление на входе в сопло.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="EnterBox" name="eBox_P_out">
+         <property name="toolTip">
+          <string>Давление на выходе</string>
+         </property>
+         <property name="whatsThis">
+          <string>Виджет EnterBox отображает давление на выходе из сопла.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="EnterBox" name="eBox_dP">
+         <property name="toolTip">
+          <string>Перепад давления</string>
+         </property>
+         <property name="whatsThis">
+          <string>Виджет EnterBox отображает  перепад давления на сопле.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="EnterBox" name="eBox_mu">
+         <property name="toolTip">
+          <string>Молекулярная масса</string>
+         </property>
+         <property name="whatsThis">
+          <string>Виджет EnterBox отображает молекулярную массу газа, проходящего через сопло.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="EnterBox" name="eBox_T_in">
+         <property name="toolTip">
+          <string>Температура на входе в сопло</string>
+         </property>
+         <property name="whatsThis">
+          <string>Виджет EnterBox отображает  температуру газа на входе в сопло.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="EnterBox" name="eBox_T_out">
+         <property name="toolTip">
+          <string>Температура воздуха на выходе</string>
+         </property>
+         <property name="whatsThis">
+          <string>Виджет EnterBox отображает  температуру газа на входе в сопло.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="EnterBox" name="eBox_W_kritikal">
+         <property name="toolTip">
+          <string>Критическая скорость</string>
+         </property>
+         <property name="whatsThis">
+          <string>Виджет EnterBox отображает критическую скорость газа.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="EnterBox" name="eBox_k">
+         <property name="toolTip">
+          <string>Коэффициент адиабаты</string>
+         </property>
+         <property name="whatsThis">
+          <string>Виджет EnterBox отображает коэффициент адиабаты.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Определяет тип рассчета.</string>
+       </property>
+       <property name="whatsThis">
+        <string>Определяет тип расчета.</string>
+       </property>
+       <property name="title">
+        <string>Тип расчета</string>
+       </property>
+       <layout class="QVBoxLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMaximumSize</enum>
+        </property>
+        <property name="bottomMargin">
+         <number>9</number>
+        </property>
+        <item>
+         <widget class="QRadioButton" name="rB_Area">
+          <property name="toolTip">
+           <string>Расчет площади</string>
+          </property>
+          <property name="text">
+           <string>Площади</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rB_Flow">
+          <property name="toolTip">
+           <string>Расчет расхода</string>
+          </property>
+          <property name="text">
+           <string>Расхода</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rB_Pin_by_velocity">
+          <property name="toolTip">
+           <string>Расчет давления в точке входа по скорости на выходе</string>
+          </property>
+          <property name="text">
+           <string>In парам. по скорости</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rB_Pin_by_flow">
+          <property name="toolTip">
+           <string>Расчет давления на входе по расходу через сопло</string>
+          </property>
+          <property name="text">
+           <string>In парам. по расходу</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="EnterBox" name="eBox_F">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>Площадь сопла</string>
+         </property>
+         <property name="whatsThis">
+          <string>The analog clock widget displays the current time.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="EnterBox" name="eBox_W">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>Скорость на выходе из сопла</string>
+         </property>
+         <property name="whatsThis">
+          <string>The analog clock widget displays the current time.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="EnterBox" name="eBox_G">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>Расход через сопло</string>
+         </property>
+         <property name="whatsThis">
+          <string>Виджет EnterBox отображает расход через сопло.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="EnterBox" name="eBox_Gkr">
+         <property name="toolTip">
+          <string>The current time</string>
+         </property>
+         <property name="whatsThis">
+          <string>The analog clock widget displays the current time.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="EnterBox" name="eBox_Pout_kr">
+         <property name="toolTip">
+          <string>The current time</string>
+         </property>
+         <property name="whatsThis">
+          <string>The analog clock widget displays the current time.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="spacing">
+      <number>6</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="pB_FileOpen">
+       <property name="text">
+        <string>File Open...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pB_Culculate">
+       <property name="text">
+        <string>Рассчитать</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pB_Print">
+       <property name="text">
+        <string>Print</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pB_FilePrint">
+       <property name="text">
+        <string>Print File</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>EnterBox</class>
+   <extends>QWidget</extends>
+   <header>EnterBox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
