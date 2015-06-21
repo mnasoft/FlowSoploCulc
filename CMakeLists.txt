@@ -17,14 +17,16 @@ include_directories(
 # 
   /usr/local/include/EnterBoxPlugin
   /usr/local/include/MNAS_lib
-#   ../EnterBoxPlugin/src
-#   ../ns_MNAS_lib/ns_MNAS_CodePage
-#   ../ns_MNAS_lib/ns_MNAS_Error
-#   ../ns_MNAS_lib/ns_MNAS_Gases
-#   ../ns_MNAS_lib/ns_MNAS_HalfDiv
-#   ../ns_MNAS_lib/ns_MNAS_Matrix
-#   ../ns_MNAS_lib/ns_MNAS_MendeleevTbl
-#   ../ns_MNAS_lib/ns_MNAS_ValDimension
+#
+  ../EnterBoxPlugin/src
+#
+  ../ns_MNAS_lib/ns_MNAS_CodePage
+  ../ns_MNAS_lib/ns_MNAS_Error
+  ../ns_MNAS_lib/ns_MNAS_Gases
+  ../ns_MNAS_lib/ns_MNAS_HalfDiv
+  ../ns_MNAS_lib/ns_MNAS_Matrix
+  ../ns_MNAS_lib/ns_MNAS_MendeleevTbl
+  ../ns_MNAS_lib/ns_MNAS_ValDimension
 )
 
 set(FlowSoploCulc_SRCS
@@ -43,14 +45,14 @@ qt4_automoc(${FlowSoploCulc_SRCS})
 
 add_executable (FlowSoploCulc ${FlowSoploCulc_SRCS} ${FlowSoploCulc_UIS_H} )
 
-find_library(MLIB ns_MNAS_lib /usr/local/lib64 )
-find_library(EnterBoxPlugin EnterBoxPlugin /usr/local/lib64 )
+find_library(ns_MNAS_lib ns_MNAS_lib /usr/local/lib64 ../ns_MNAS_lib/build )
+find_library(EnterBoxPlugin EnterBoxPlugin /usr/local/lib64 ../EnterBoxPlugin/build )
 
 target_link_libraries(FlowSoploCulc
   ${QT_QTCORE_LIBRARY} 
   ${QT_QTGUI_LIBRARY} 
   ${QT_QTDESIGNER_LIBRARY} 
-  ${MLIB}
+  ${ns_MNAS_lib}
   ${EnterBoxPlugin}
 )
 
