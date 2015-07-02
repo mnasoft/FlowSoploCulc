@@ -78,4 +78,3 @@ install(
   ARCHIVE DESTINATION lib/static)
   
 set(FlowSoploCulc_UIS src/Flow.ui)
-
