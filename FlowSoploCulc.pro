@@ -25,13 +25,13 @@ INCLUDEPATH += ../mnasoft_lib \
                ../mnasoft_lib/ns_MNAS_MendeleevTbl
 
 INCLUDEPATH += ../EnterBoxPlugin \
-               ../EnterBoxPlugin\src
+               ../EnterBoxPlugin/src
 
 
 HEADERS  += src/Flow.h
 SOURCES += src/Flow.cpp src/main.cpp
 
-unix:LIBS  += -L. -L/usr/local/lib -lmnas
+unix:LIBS  += -L/home/namatv/usr/lib -lmnas -L/usr/lib/qt/plugins/designer/ -lmnasoft_eb
 win32:LIBS += E:/home/namatv/usr/bin/mnas.dll E:/PRG/Qt/5.4/mingw491_32/plugins/designer/mnasoft_eb.dll
 
 #$$[QT_INSTALL_PLUGINS]/designer/mnasoft_eb.dll
@@ -39,7 +39,7 @@ win32:LIBS += E:/home/namatv/usr/bin/mnas.dll E:/PRG/Qt/5.4/mingw491_32/plugins/
 FORMS    += src/Flow.ui
 
 unix {
-    target.path = /usr/lib
+    target.path = /home/namatv/usr/lib
     INSTALLS += target
 }
 
