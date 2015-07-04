@@ -36,10 +36,10 @@ win32:LIBS += E:/home/namatv/usr/bin/mnas.dll E:/PRG/Qt/5.4/mingw491_32/plugins/
 
 #$$[QT_INSTALL_PLUGINS]/designer/mnasoft_eb.dll
 
-FORMS    += src/Flow.ui
+FORMS    += src/Flow.ui src/EnterBox.ui
 
 unix {
-    target.path = /home/namatv/usr/lib
+    target.path = /home/namatv/usr/bin
     INSTALLS += target
 }
 
