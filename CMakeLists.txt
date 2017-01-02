@@ -48,21 +48,24 @@ include_directories(
 #
   ${CMAKE_INSTALL_PREFIX}/include/EnterBoxPlugin
 #
-  ${CMAKE_INSTALL_PREFIX}/include/ns_MNAS_lib/ns_MNAS_Error
-  ${CMAKE_INSTALL_PREFIX}/include/ns_MNAS_lib/ns_MNAS_CodePage  
-  ${CMAKE_INSTALL_PREFIX}/include/ns_MNAS_lib/ns_MNAS_Error
-  ${CMAKE_INSTALL_PREFIX}/include/ns_MNAS_lib/ns_MNAS_Gases 
-  ${CMAKE_INSTALL_PREFIX}/include/ns_MNAS_lib/ns_MNAS_HalfDiv
-  ${CMAKE_INSTALL_PREFIX}/include/ns_MNAS_lib/ns_MNAS_Matrix
-  ${CMAKE_INSTALL_PREFIX}/include/ns_MNAS_lib/ns_MNAS_MendeleevTbl
-  ${CMAKE_INSTALL_PREFIX}/include/ns_MNAS_lib/ns_MNAS_ValDimension
+  ${CMAKE_INSTALL_PREFIX}/include/mnas
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_Error
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_CodePage  
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_Error
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_Gases 
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_HalfDiv
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_Matrix
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_MendeleevTbl
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_ValDimension
 )
+
 
 set(FlowSoploCulc_SRCS src/Flow.cpp  src/main.cpp)
 
 add_executable (${CMAKE_PROJECT_NAME} ${FlowSoploCulc_SRCS} ${FlowSoploCulc_UIS_H} )
 
-find_library(ns_MNAS_lib ns_MNAS_lib  ${CMAKE_INSTALL_PREFIX}/lib)
+#find_library(ns_MNAS_lib ns_MNAS_lib  ${CMAKE_INSTALL_PREFIX}/lib)
+find_library(ns_MNAS_lib mnas  ${CMAKE_INSTALL_PREFIX}/lib)
 find_library(EnterBoxPlugin EnterBoxPlugin ${CMAKE_INSTALL_PREFIX}/lib)
 
 target_link_libraries(${CMAKE_PROJECT_NAME} 
