@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 2.8.12)
+
 project(FlowSoploCulc)
+
+
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -10,7 +14,7 @@ find_package(Qt5Xml)
 find_package(Qt5Widgets)
 find_package(Qt5Designer)
 
-if(NOT WIN32)
+#if(NOT WIN32)
   string(ASCII 27 Esc)
   set(ColourReset "${Esc}[m")
   set(ColourBold  "${Esc}[1m")
@@ -28,7 +32,7 @@ if(NOT WIN32)
   set(BoldMagenta "${Esc}[1;35m")
   set(BoldCyan    "${Esc}[1;36m")
   set(BoldWhite   "${Esc}[1;37m")
-endif()
+#endif()
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 #  set(CMAKE_INSTALL_PREFIX d:/home/_namatv/usr)
