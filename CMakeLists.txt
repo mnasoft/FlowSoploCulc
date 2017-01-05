@@ -36,7 +36,8 @@ find_package(Qt5Designer)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 #  set(CMAKE_INSTALL_PREFIX d:/home/_namatv/usr)
-  set(CMAKE_INSTALL_PREFIX e:/home/namatv/usr)
+#  set(CMAKE_INSTALL_PREFIX e:/home/namatv/usr)
+   set(CMAKE_INSTALL_PREFIX E:/PRG/msys64/home/namatv/usr)
 endif (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
@@ -68,9 +69,17 @@ set(FlowSoploCulc_SRCS src/Flow.cpp  src/main.cpp)
 
 add_executable (${CMAKE_PROJECT_NAME} ${FlowSoploCulc_SRCS} ${FlowSoploCulc_UIS_H} )
 
-#find_library(ns_MNAS_lib ns_MNAS_lib  ${CMAKE_INSTALL_PREFIX}/lib)
-find_library(ns_MNAS_lib mnas  ${CMAKE_INSTALL_PREFIX}/lib)
-find_library(EnterBoxPlugin EnterBoxPlugin ${CMAKE_INSTALL_PREFIX}/lib)
+
+if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+  find_library(ns_MNAS_lib mnas  ${CMAKE_INSTALL_PREFIX}/bin)
+  find_library(EnterBoxPlugin EnterBoxPlugin ${CMAKE_INSTALL_PREFIX}/bin)
+endif (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+
+if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+  find_library(ns_MNAS_lib mnas  ${CMAKE_INSTALL_PREFIX}/lib)
+  find_library(EnterBoxPlugin EnterBoxPlugin ${CMAKE_INSTALL_PREFIX}/lib)
+endif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+
 
 target_link_libraries(${CMAKE_PROJECT_NAME} 
   Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Designer
