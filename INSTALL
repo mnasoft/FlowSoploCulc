@@ -1,0 +1,49 @@
+Порядок сборки проекта FlowCulc
+
+1. Проект состоит из следующих частей:
+1.1 mnasoft_lib - библиотека;
+    Зависит от: Qt5;
+    Скачать можно при помощи команды:
+    git clone https://github.com/mnasoft/mnasoft_lib.git
+1.2 EnterBoxPlugin - плагин окна ввода для величины, имеющей размерность.
+    Зависит от: Qt5, mnasoft_lib;
+    Скачать можно при помощи команды:
+    git clone https://github.com/mnasoft/EnterBoxPlugin.git
+1.3 EnterBoxPlugin_text - диалоговое окно ввода величины, имеющей размерность.
+    Зависит от: Qt5; mnasoft_lib; EnterBoxPlugin;
+    Скачать можно при помощи команды:
+    git clone https://github.com/mnasoft/EnterBoxPlugin_test.git
+1.4 FlowSoploCulc - диалоговое окно, предназначенное для расчета расхода газа через сопло.
+    Зависит от mnasoft_lib и EnterBoxPlugin
+    Скачать можно при помощи команды:
+    git clone https://github.com/mnasoft/FlowSoploCulc.git
+    
+2. Сборка под Windows
+2.1 Выполните настройку рабочей среды MSYS2 смотри https://sourceforge.net/p/msys2/wiki/Home/
+2.2 Установите пакеты pacman, пеобходимые для сборки:
+    mingw-w64-i686-toolchain - среда сборки (компилятор, отладчик ...)
+    mingw-w64-i686-qt5       - Qt5
+    mingw-w64-i686-cmake     - система построения сценария сборки
+    git                      - для загрузки файлов из репозитория git
+2.2.1 Установику пакетов выполните при помощи вызова следующей команды (в среде MSYS):
+    $ pacman -S mingw-w64-i686-toolchain mingw-w64-i686-qt5 mingw-w64-i686-cmake
+2.3 Создать каталог для сборки проекта и перейти в него (выполнять в среде MSYS):
+    $ mkdir FlofCulc
+    $ cd FlofCulc/
+2.4 Клонируйте части проекта во вновь созданный каталог:
+    $ git clone https://github.com/mnasoft/mnasoft_lib.git
+    $ git clone https://github.com/mnasoft/EnterBoxPlugin.git
+    $ git clone https://github.com/mnasoft/EnterBoxPlugin_test.git
+    $ git clone https://github.com/mnasoft/FlowSoploCulc.git
+2.5 Последовательно перейдите каталог расположения каждой из частей проекта,
+    создайте в ней каталог build.
+2.6 Выполните настройку и сборку частей проекта при помощи вызова в
+    подкаталоге build каждого проекта при помощи следующих команд,
+    выполняемых в  интерпретаторе cmd:
+    > cmake .. -G "MinGW Makefiles"
+    > mingw32-make install
+    При этом части проекта нужно собирать в последовательности, указанной в п.1
+2.7 Выполняемые файлы будут располагаться в каталоге
+    FlofCulc/usr/bin
+    см. п.2.3
+
