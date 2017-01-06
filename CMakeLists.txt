@@ -4,13 +4,8 @@ project(FlowSoploCulc)
 
 message ("CMAKE_SOURCE_DIR = ${CMAKE_SOURCE_DIR}")
 
-#set(INSTALL_PREFIX_FOR_WINDOWS "E:/PRG/msys64/home/namatv/usr")
-
-
 set(INSTALL_PREFIX_FOR_WINDOWS "${CMAKE_SOURCE_DIR}/../usr")
 set(INSTALL_PREFIX_FOR_LINUX   "/home/namatv/usr")
-
-
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
@@ -73,11 +68,9 @@ include_directories(
   ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_ValDimension
 )
 
-
 set(FlowSoploCulc_SRCS src/Flow.cpp  src/main.cpp)
 
 add_executable (${CMAKE_PROJECT_NAME} ${FlowSoploCulc_SRCS} ${FlowSoploCulc_UIS_H} )
-
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
   find_library(mnas_lib mnas  ${CMAKE_INSTALL_PREFIX}/bin)
@@ -89,12 +82,10 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   find_library(EnterBoxPlugin_lib EnterBoxPlugin ${CMAKE_INSTALL_PREFIX}/lib)
 endif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
-
-target_link_libraries(${CMAKE_PROJECT_NAME} 
+target_link_libraries(${CMAKE_PROJECT_NAME}
   Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Designer
   ${mnas_lib}
-  ${EnterBoxPlugin_lib}
-)
+  ${EnterBoxPlugin_lib})
 
 install(
   TARGETS ${CMAKE_PROJECT_NAME}
